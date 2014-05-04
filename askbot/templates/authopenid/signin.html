@@ -77,7 +77,11 @@
             {% if user.is_anonymous() or settings.USE_LDAP_FOR_PASSWORD_LOGIN %}
                 {% if have_buttons %}
                     <h2 id="password-heading">
-                        {% trans %}or enter your <span>user name and password</span>{% endtrans %}
+                    <div class="or-spacer">
+                      <div class="mask"></div>
+                      <span><i>or</i></span>
+                    </div>
+                        {% trans %}Enter your <span>user name and password</span>{% endtrans %}
                     </h2>
                 {% else %}
                     <h1 class="section-title">

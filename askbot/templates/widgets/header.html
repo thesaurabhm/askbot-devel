@@ -4,14 +4,16 @@
     id="header"
     class="{% if settings.SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}"
 >
-    <div class="content-wrapper">
-        <div id="userToolsNav">
+    <div class="content-wrapper row-fluid">
+        <div class="span1-fluid">
+            {% if settings.SHOW_LOGO %}
+                {% include "widgets/logo.html" %}
+            {% endif %}
+        </div>
+        <div id="userToolsNav" class="offset1 span5-fluid">
             {% include "widgets/user_navigation.html" %}
         </div>
-        {% if settings.SHOW_LOGO %}
-            {% include "widgets/logo.html" %}
-        {% endif %}
-        <div id="metaNav">
+        <div id="metaNav" class="offset7 span3-fluid">
             {% include "widgets/meta_nav.html" %}
         </div>
         <div class="clean"></div>

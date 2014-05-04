@@ -64,7 +64,7 @@ def owner_or_moderator_required(f):
     return wrapped_func
 
 
-def show_users(request, by_group=False, group_id=None, group_slug=None):
+def show_users(request, experts=False, by_group=False, group_id=None, group_slug=None):
     """Users view, including listing of users by group"""
     if askbot_settings.GROUPS_ENABLED and not by_group:
         default_group = models.Group.objects.get_global_group()
@@ -123,6 +123,9 @@ def show_users(request, by_group=False, group_id=None, group_slug=None):
                     return HttpResponseRedirect(group_page_url)
 
     is_paginated = True
+    
+    if experts == True:
+        users = users.filter(is_lawexpert=True)
 
     sortby = request.GET.get('sort', 'reputation')
     if askbot_settings.KARMA_MODE == 'private' and sortby == 'reputation':
@@ -360,6 +363,9 @@ def edit_user(request, id):
             user.about = sanitize_html(form.cleaned_data['about'])
             user.country = form.cleaned_data['country']
             user.show_country = form.cleaned_data['show_country']
+            user.is_lawexpert = form.cleaned_data['is_lawexpert']
+            user.address = form.cleaned_data['address']
+            user.zipcode = form.cleaned_data['zipcode']
             user.show_marked_tags = form.cleaned_data['show_marked_tags']
             user.save()
             # send user updated signal if full fields have been updated

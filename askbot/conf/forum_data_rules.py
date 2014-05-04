@@ -321,7 +321,7 @@ settings.register(
     livesettings.BooleanValue(
         FORUM_DATA_RULES,
         'SUBSCRIBED_TAG_SELECTOR_ENABLED',
-        default = False,
+        default = True,
         description = _('Use separate set for subscribed tags'),
         help_text = _(
             'If enabled, users will have a third set of tag selections '
@@ -350,7 +350,7 @@ settings.register(
     livesettings.BooleanValue(
         FORUM_DATA_RULES,
         'TAG_SEARCH_INPUT_ENABLED',
-        default = False,
+        default = True,
         description = _('Enable separate tag search box on main page')
     )
 )

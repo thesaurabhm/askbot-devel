@@ -6,6 +6,7 @@ import urlparse
 import functools
 import re
 import random
+from twython import Twython
 from askbot.utils.html import site_url
 from openid.store.interface import OpenIDStore
 from openid.association import Association as OIDAssociation
@@ -442,6 +443,7 @@ def get_enabled_major_login_providers():
             'get_user_id_url': 'https://twitter.com/account/verify_credentials.json',
             'icon_media_path': '/jquery-openid/images/twitter.gif',
             'get_user_id_function': lambda data: data['user_id'],
+            'get_user_data_function': lambda data: data,
         }
     def get_identica_user_id(data):
         consumer = oauth.Consumer(data['consumer_key'], data['consumer_secret'])
@@ -749,6 +751,8 @@ class OAuthConnection(object):
                             self.parameters['consumer_key'],
                             self.parameters['consumer_secret'],
                         )
+        self.oauth_token = ''
+        self.oauth_token_secret = ''
 
     def start(self, callback_url = None):
         """starts the OAuth protocol communication and
@@ -799,10 +803,18 @@ class OAuthConnection(object):
 
     def get_access_token(self, oauth_token=None, oauth_verifier=None):
         """returns data as returned upon visiting te access_token_url"""
+        if self.oauth_token and self.oauth_token_secret:
+            return {
+                'oauth_token':self.oauth_token,
+                'oauth_token_secret':self.oauth_token_secret
+            }
         client = self.get_client(oauth_token, oauth_verifier)
         url = self.parameters['access_token_url']
         #there must be some provider-specific post-processing
-        return self.send_request(client = client, url=url, method='GET')
+        data = self.send_request(client = client, url=url, method='POST')
+        self.oauth_token = data['oauth_token']
+        self.oauth_token_secret = data['oauth_token_secret']
+        return data
 
     def get_user_id(self, oauth_token = None, oauth_verifier = None):
         """Returns user ID within the OAuth provider system,
@@ -812,6 +824,20 @@ class OAuthConnection(object):
         data['consumer_key'] = self.parameters['consumer_key']
         data['consumer_secret'] = self.parameters['consumer_secret']
         return self.parameters['get_user_id_function'](data)
+
+    def get_user_data(self, oauth_token = None, oauth_verifier = None, user_id=None):
+        """Returns user ID within the OAuth provider system,
+        based on ``oauth_token`` and ``oauth_verifier``
+        """
+        data = self.get_access_token(oauth_token, oauth_verifier)
+        twitter = Twython(self.parameters['consumer_key'], self.parameters['consumer_secret'],
+                  data['oauth_token'], data['oauth_token_secret'])
+
+        data = twitter.show_user(user_id=user_id)
+        
+        return self.parameters['get_user_data_function'](data)
+
+
 
     def get_auth_url(self, login_only = False):
         """returns OAuth redirect url.

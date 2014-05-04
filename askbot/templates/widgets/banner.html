@@ -1,0 +1,30 @@
+<div id="showcase-and-discover" class="dark-header-gradient">
+  <div class="dark-header-content dark-header-img text-align-center signup-cta">
+
+    <div class="grid-site">
+        <h1 class="dark-header-title dark-header-signup-title inline-block">Ask questions, Get Answers, Spread Legal Awareness</h1>
+        <a href="{{ settings.LOGIN_URL }}?next={{request.path|clean_login_url|escape}}">
+            <button class="btn btn-inverse signin_button">Sign In</button>
+        </a>
+        <a href="{% url social_signin "facebook", "oauth2" %}?next={{request.path|clean_login_url|escape}}">
+            <button class="btn btn-primary social_btn" title="Facebook Login">
+                <i class="fa fa-facebook">
+                </i>
+            </button>
+        </a>
+        <a href="{% url social_signin "twitter", "oauth" %}?next={{request.path|clean_login_url|escape}}">
+            <button name="twitter" class="btn btn-success social_btn">
+                <i class="fa fa-twitter">
+                </i>
+            </button>
+        </a>
+        <a href="{% url social_signin "google", "openid" %}?next={{request.path|clean_login_url|escape}}">
+            <button name="google" class="btn btn-danger social_btn">
+                <i class="fa fa-google-plus">
+                </i>
+            </button>
+        </a>                    
+    </div> <!-- .grid-site -->
+
+  </div> <!-- .dark-header-content -->
+</div>

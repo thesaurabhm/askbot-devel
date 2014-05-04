@@ -266,6 +266,45 @@ User.add_to_class(
     )
 )
 
+User.add_to_class(
+    'image_url',
+    models.URLField(
+        default='',
+        blank=True, 
+        verbose_name=_("Imageurl"), 
+        editable=False, 
+        null=True
+    )
+)
+
+User.add_to_class(
+	'is_lawexpert', 
+	models.BooleanField(
+		choices=const.BOOL_CHOICES,
+		default=False
+	)
+)
+
+User.add_to_class(
+	'address', 
+	models.CharField(
+		_("Address"),
+		max_length=255,
+		null=True,
+		blank=True
+	)
+)
+
+User.add_to_class(
+	'zipcode', 
+	models.CharField(
+		_("zipcode"),
+		max_length=10,
+		null=True,
+		blank=True
+	)
+)
+
 GRAVATAR_TEMPLATE = "%(gravatar_url)s/%(gravatar)s?" + \
     "s=%(size)d&amp;d=%(type)s&amp;r=PG"
 

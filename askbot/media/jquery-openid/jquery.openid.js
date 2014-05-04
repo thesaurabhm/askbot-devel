@@ -442,6 +442,26 @@ $.fn.authenticator = function() {
             start_simple_login
         );
 
+        setup_event_handlers(
+            signin_page.find('button.openid-direct'),
+            start_simple_login
+        );
+
+        setup_event_handlers(
+            signin_page.find('button.openid-username'),
+            start_login_with_extra_openid_token
+        );
+
+        setup_event_handlers(
+            signin_page.find('button.openid-generic'),
+            start_login_with_extra_openid_token
+        );
+
+        setup_event_handlers(
+            signin_page.find('button.oauth,button.oauth2'),
+            start_simple_login
+        );
+
         setup_event_handlers( 
             signin_page.find('input.password'),
             start_password_login_or_change

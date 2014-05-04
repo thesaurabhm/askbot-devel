@@ -1381,10 +1381,24 @@ class EditUserForm(forms.Form):
                         widget=forms.TextInput(attrs={'size': 35})
                     )
 
+    address = forms.CharField(
+                        label=_('Address'),
+                        required=False,
+                        max_length=255,
+                        widget=forms.TextInput(attrs={'size': 35})
+                    )
+
     city = forms.CharField(
                         label=_('City'),
                         required=False,
                         max_length=255,
+                        widget=forms.TextInput(attrs={'size': 35})
+                    )
+
+    zipcode = forms.CharField(
+                        label=_('Zipcode'),
+                        required=False,
+                        max_length=10,
                         widget=forms.TextInput(attrs={'size': 35})
                     )
 
@@ -1394,6 +1408,11 @@ class EditUserForm(forms.Form):
                         label=_('Show country'),
                         required=False
                     )
+
+    is_lawexpert = forms.BooleanField(
+                        label=_('Law expert?'), 
+                        widget=forms.RadioSelect(choices=const.BOOL_CHOICES), 
+                        required=False)
 
     show_marked_tags = forms.BooleanField(
                         label=_('Show tag choices'),
@@ -1426,6 +1445,8 @@ class EditUserForm(forms.Form):
         self.fields['email'].initial = user.email
         self.fields['realname'].initial = user.real_name
         self.fields['website'].initial = user.website
+        self.fields['address'].initial = user.address
+        self.fields['zipcode'].initial = user.zipcode
         self.fields['city'].initial = user.location
         if user.country is None:
             country = 'unknown'
@@ -1433,6 +1454,7 @@ class EditUserForm(forms.Form):
             country = user.country
         self.fields['country'].initial = country
         self.fields['show_country'].initial = user.show_country
+        self.fields['is_lawexpert'].initial = user.is_lawexpert
         self.fields['show_marked_tags'].initial = user.show_marked_tags
 
         if user.date_of_birth is not None:

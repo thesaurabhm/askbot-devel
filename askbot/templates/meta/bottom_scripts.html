@@ -108,12 +108,26 @@
             var showPermsTrigger = new ShowPermsTrigger();
             showPermsTrigger.decorate(userRep);
         }
+        $('#askButton').on('click', function(evt){
+            window.location.href = $(this).closest("a").attr("href");
+            return false;
+        });
     });
     if (askbot['data']['haveFlashNotifications']) {
         $('#validate_email_alert').click(function(){notify.close(true)})
         notify.show();
     }
     $('abbr.timeago').timeago();
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+        // add the 'active' class to the correct id based on the scroll amount
+        if (scroll >= 158) {
+            if(!$("#secondaryHeader").hasClass("is-sticky") && !$("#secondaryHeader").hasClass("force-sticky"))
+                $("#secondaryHeader").addClass("is-sticky");
+        } else {
+            $("#secondaryHeader").removeClass("is-sticky");
+        }
+    });
     /*]]>*/
 </script>
 {% include "meta/custom_javascript.html" ignore missing %}

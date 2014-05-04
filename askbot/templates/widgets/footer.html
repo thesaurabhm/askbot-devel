@@ -3,8 +3,27 @@
     <div class="content-wrapper">
         {% if settings.USE_LICENSE %}{# could be factored out into separate template #}
             {% if settings.LICENSE_USE_URL %}
+
             <div class="copyright">
-                {% if settings.LICENSE_USE_LOGO %}
+                <div>
+                    <span style="color:white;">Follow LawStreet on</span>
+                    <button class="btn btn-inverse social_btn">
+                        <i class="fa fa-facebook">
+                        </i>
+                    </button>
+                    <button class="btn btn-inverse social_btn">
+                        <i class="fa fa-google-plus">
+                        </i>
+                    </button>
+                    <button class="btn btn-inverse social_btn">
+                        <i class="fa fa-twitter">
+                        </i>
+                    </button>
+                </div>
+            <span class="copyright_text">
+                © 2014 - lawayo.com. All rights reserved.
+            </span>
+                <!-- {% if settings.LICENSE_USE_LOGO %}
                 <a href="{{ settings.LICENSE_URL}}">
                         <img
                             class="license-logo"
@@ -17,7 +36,7 @@
                 {{settings.APP_COPYRIGHT}} {% trans 
                     license_title=settings.LICENSE_TITLE,
                     license_url=settings.LICENSE_URL
-                %}Content on this site is licensed under a <a href="{{license_url}}">{{license_title}}</a> license.{% endtrans %}
+                %}Content on this site is licensed under a <a href="{{license_url}}">{{license_title}}</a> license.{% endtrans %} -->
 
             </div>
             {% else %}
@@ -52,11 +71,11 @@
                     </a>
                     {% endspaceless %}
         </div>
-        <div class="powered-link">
+<!--         <div class="powered-link">
             <a href="http://askbot.com" target="_blank">
                 Powered by Askbot version {{settings.ASKBOT_VERSION}}
             </a>
-        </div>
+        </div> -->
         <div class="clean"></div>
     </div>
 </div>

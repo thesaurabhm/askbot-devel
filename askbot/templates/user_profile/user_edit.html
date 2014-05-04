@@ -69,6 +69,14 @@
                     <td>{{ form.website }} <span class="form-error"> {{ form.website.errors }} </span></td>
                 </tr>
                 <tr>
+                    <td>{{ form.address.label_tag() }}:</td>
+                    <td>{{ form.address }} <span class="form-error"> {{ form.address.errors }} </span></td>
+                </tr>
+                <tr>
+                    <td>{{ form.zipcode.label_tag() }}:</td>
+                    <td>{{ form.zipcode }} <span class="form-error"> {{ form.zipcode.errors }} </span></td>
+                </tr>
+                <tr>
                     <td>{{ form.city.label_tag() }}:</td>
                     <td>{{ form.city }} <span class="form-error"> {{ form.city.errors }} </span></td>
                 </tr>
@@ -79,6 +87,10 @@
                 <tr>
                     <td>{{ form.show_country.label_tag() }}:</td>
                     <td>{{ form.show_country }} <span class="form-error"> {{ form.show_country.errors }} </span></td>
+                </tr>
+                <tr>
+                    <td>{{ form.is_lawexpert.label_tag() }}:</td>
+                    <td>{{ form.is_lawexpert }} <span class="form-error"> {{ form.is_lawexpert.errors }} </span></td>
                 </tr>
                 <tr>
                     <td>{{ form.birthday.label_tag() }}:</td>

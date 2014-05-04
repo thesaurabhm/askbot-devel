@@ -472,5 +472,7 @@ a {
 }
 """
 
+BOOL_CHOICES = ((True, _('Yes')), (False, _('No')))
+
 #an exception import * because that file has only strings
 from askbot.const.message_keys import *

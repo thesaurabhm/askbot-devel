@@ -2,34 +2,56 @@
 <!-- template 404.jinja.html -->
 {% block title %}{% spaceless %}{% trans %}Page not found{% endtrans %}{% endspaceless %}{% endblock %}
 {% block forestyle%}
+<link rel="stylesheet" href="{{'/style/404.css'|media}}">
 <style type="text/css">
     form input { margin-right: 5px; }
 </style>
 {% endblock %}
 {% block content %}
-<h1>{% trans %}Page not found{% endtrans %}</h1>
-<div id="main-body">
-    <div style="padding:5px 0px 10px 0;line-height:25px;">
-        <h2>{% trans %}Sorry, could not find the page you requested.{% endtrans %}</h2>
-        <div style="margin-top:5px">
-        {% trans %}This might have happened for the following reasons:{% endtrans %}<br/>
-        <ul>
-            <li>{% trans %}This page has been deleted{% endtrans %}</li>
-            <li>{% trans %}url has error - please check it;{% endtrans %}</li>
-            <li>{% trans %}the page you tried to visit is protected or you don't have sufficient points, see{% endtrans %} <a href="{% url faq %}">{% trans %}faq{% endtrans %}</a>;</li>
-            <li>{% trans %}if you believe this error 404 should not have occured, please{% endtrans %} 
-                <a href="{{feedback_site_url}}" target="_blank">{% trans %}report this problem{% endtrans %}</a></li>
-            </u>
+<!-- <h1>{% trans %}Page not found{% endtrans %}</h1> -->
+        <div id="container">
+        
+            <div id="icon" class="color-404"></div>
+            
+            <h1 class="title" >Uh Oh...</h1>
+            <h3 class="description">{% trans %}Sorry, could not find the page you requested.{% endtrans %}</h3>
+            
+            <div id="box">
+            
+                <div id="inner-box" class="clearfix">
+            
+                    <div id="question-mark" style="height: 150px;"></div>
+                        
+                    <div id="divider" style="height: 150px;"></div>
+                    
+                    <h3><b>{% trans %}Troubleshooting{% endtrans %}</b></h3>
+                    
+                    <ul>
+                        <li>{% trans %}If you spelled the URL manually, double-check the spelling{% endtrans %}</li>
+                        <li>{% trans %}the page you tried to visit is protected or you don't have sufficient points, see{% endtrans %} <a href="{% url faq %}">{% trans %}faq{% endtrans %}</a></li>
+                        <li>{% trans %}Go to our {% endtrans %}<a href="{% url questions %}">{% trans %}home page{% endtrans %}</a>{% trans %}, and navigate to the content in question{% endtrans %}</li>
+                        <li>{% trans %}If you believe this error 404 should not have occured, please{% endtrans %} 
+                            <a href="{{feedback_site_url}}" target="_blank">{% trans %}report this problem{% endtrans %}</a>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        var GOOG_FIXURL_LANG = '{{ language_code }}';
+                        var GOOG_FIXURL_SITE = '{{ site_url }}';
+                    </script>
+                    <script type="text/javascript" src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script> 
+                
+                </div>           
+            </div>
         </div>
-        <script type="text/javascript">
-            var GOOG_FIXURL_LANG = '{{ language_code }}';
-            var GOOG_FIXURL_SITE = '{{ site_url }}';
-        </script>
-        <script type="text/javascript" src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
-    </div>
-</div>
+
 {% endblock %}
 {% block endjs %}
+    <!-- scripts concatenated and minified via build script -->
+    <script type="text/javascript" src="{{"/js/transit.js"|media}}"></script>
+    <script type="text/javascript" src="{{"/js/plugins.js"|media}}"></script>
+    <script type="text/javascript" src="{{"/js/main.js"|media}}"></script>
+    <script type="text/javascript" src="{{"/js/modernizr-2.5.3.min.js"|media}}"></script>
+    <!-- end scripts -->
    <script type="text/javascript">
         $().ready(function(){
             $("#linkPrevious").bind("click", back=function(){history.go(-1);})            

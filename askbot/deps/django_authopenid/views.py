@@ -332,6 +332,8 @@ def complete_oauth2_signin(request):
 
     if (provider_name == 'facebook'):
         profile = client.request("me")
+        request.session['image_url'] = "http://graph.facebook.com/%s/picture" \
+                            % user_id
         request.session['email'] = profile.get('email', '')
         request.session['username'] = profile.get('username', '')
 
@@ -386,8 +388,19 @@ def complete_oauth_signin(request):
 
         logging.debug('finalizing oauth signin')
 
-        request.session['email'] = ''#todo: pull from profile
-        request.session['username'] = ''#todo: pull from profile
+        if oauth_provider_name == 'twitter':
+            profile = oauth.get_user_data(
+                                oauth_token = session_oauth_token,
+                                oauth_verifier = oauth_verifier,
+                                user_id = user_id
+
+                            )
+            image_url = profile.get('profile_image_url', '')
+            image_url = image_url.replace('normal', 'bigger')
+            request.session['image_url'] = image_url
+            request.session['email'] = ''#not exposed by twitter
+            request.session['username'] = profile.get('screen_name', '')
+
 
         return finalize_generic_signin(
                             request = request,
@@ -403,8 +416,79 @@ def complete_oauth_signin(request):
                 'connecting to the login provider, please try again '
                 'or use another login method'
             )
+        msg = e
         request.user.message_set.create(message = msg)
         return HttpResponseRedirect(next_url)
+
+#@not_authenticated
+def social_signin(request, provider_name, login_type):
+    if request.method == 'GET':
+        login_redirect_url = getattr(django_settings, 'LOGIN_REDIRECT_URL', None)
+        next_url = get_next_url(request, default = login_redirect_url)
+        if login_type == 'openid':
+            #initiate communication process
+            logging.debug('processing signin with openid submission')
+
+            #todo: make a simple-use wrapper for openid protocol
+            openid_url = ''
+            if provider_name == "google":
+                openid_url = util.get_enabled_major_login_providers()['google']['openid_endpoint']
+
+            sreg_req = sreg.SRegRequest(optional=['nickname', 'email'])
+            redirect_to = "%s%s?%s" % (
+                    get_url_host(request),
+                    reverse('user_complete_signin'),
+                    urllib.urlencode({'next':next_url})
+            )
+            return ask_openid(
+                        request,
+                        openid_url,
+                        redirect_to,
+                        on_failure=signin_failure,
+                        sreg_request=sreg_req
+                    )
+
+        elif login_type == 'oauth':
+            try:
+                #this url may need to have "next" piggibacked onto
+                connection = util.OAuthConnection(
+                                provider_name,
+                                callback_url=reverse('user_complete_oauth_signin')
+                            )
+
+                connection.start()
+
+                request.session['oauth_token'] = connection.get_token()
+                request.session['oauth_provider_name'] = provider_name
+                request.session['next_url'] = next_url#special case for oauth
+
+                oauth_url = connection.get_auth_url(login_only=True)
+                return HttpResponseRedirect(oauth_url)
+
+            except util.OAuthError, e:
+                logging.critical(unicode(e))
+                msg = _('Unfortunately, there was some problem when '
+                        'connecting to %(provider)s, please try again '
+                        'or use another provider'
+                    ) % {'provider': provider_name}
+                request.user.message_set.create(message = msg)
+
+        elif login_type == 'oauth2':
+            try:
+                csrf_token = generate_random_key(length=32)
+                redirect_url = util.get_oauth2_starter_url(provider_name, csrf_token)
+                request.session['oauth2_csrf_token'] = csrf_token
+                request.session['provider_name'] = provider_name
+                return HttpResponseRedirect(redirect_url)
+            except util.OAuthError, e:
+                logging.critical(unicode(e))
+                msg = _('Unfortunately, there was some problem when '
+                        'connecting to %(provider)s, please try again '
+                        'or use another provider'
+                    ) % {'provider': provider_name}
+                request.user.message_set.create(message = msg)
+    else:
+        raise Http404()    
 
 #@not_authenticated
 @csrf.csrf_protect
@@ -1078,6 +1162,9 @@ def register(request, login_provider_name=None, user_identifier=None):
                             user_identifier=user_identifier,
                             login_provider_name=login_provider_name,
                         )
+                user.image_url = request.session.get('image_url', '')
+                user.save()
+                del request.session['image_url']
                 login(request, user)
                 cleanup_post_register_session(request)
                 return HttpResponseRedirect(next_url)
@@ -1167,6 +1254,9 @@ def verify_email_and_register(request):
             login(request, user)
             email_verifier.verified = True
             email_verifier.save()
+            user.image_url = request.session.get('image_url', '')
+            user.save()
+            del request.session['image_url']
             cleanup_post_register_session(request)
 
             return HttpResponseRedirect(get_next_url(request))

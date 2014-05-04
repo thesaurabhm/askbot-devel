@@ -59,4 +59,9 @@ urlpatterns = patterns('askbot.deps.django_authopenid.views',
         'delete_login_method',
         name ='delete_login_method'
     ),
+    url(
+        r'^social/sigin/(?P<provider_name>\w+)/(?P<login_type>\w+)/$',#this method is ajax only
+        'social_signin',
+        name ='social_signin'
+    ),
 )
