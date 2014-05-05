@@ -664,3 +664,9 @@ a:hover {
 .user-profile-page h3 {
   margin-top: 0px;
 }
+.user-details a, .short-summary a {
+  color: #505050;
+}
+.user-details a:hover, .short-summary a:hover {
+  color: #00aadd;
+}
