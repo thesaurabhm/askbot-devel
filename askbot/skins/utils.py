@@ -160,7 +160,8 @@ def get_media_url(url, ignore_missing = False):
         return None
 
     url = django_settings.STATIC_URL + use_skin + '/media/' + url
-    url = os.path.normpath(url).replace('\\', '/')
+    if not url.startswith('http://') and not url.startswith('https://'):
+        url = os.path.normpath(url).replace('\\', '/')
 
     if resource_revision:
         url +=  '?v=%d' % resource_revision
