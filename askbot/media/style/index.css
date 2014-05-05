@@ -1,7 +1,7 @@
 .dark-header-gradient
 {
    text-align: center;
-    background: url('../images/header_background.png') repeat-x;
+    background: url('/m/default/media/images/header_background.png') repeat-x;
     height: 158px; 
    margin-top: 0 !important;
     position: fixed;
@@ -39,7 +39,7 @@
     position: relative;
 }
 .dark-header-img {
-    background: url("../images/dark-header-img.jpg") center center no-repeat;
+    background: url("/m/default/media/images/dark-header-img.jpg") center center no-repeat;
     height: 158px;
 }
 
