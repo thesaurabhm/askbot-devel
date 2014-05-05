@@ -434,3 +434,9 @@ a:hover {
   display:inline-block;
   list-style:none;
 }
+.user-details a, .short-summary a {
+  color: #505050;
+}
+.user-details a:hover, .short-summary a:hover {
+  color: #00aadd;
+}

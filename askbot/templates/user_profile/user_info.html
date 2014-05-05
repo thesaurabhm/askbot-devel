@@ -34,11 +34,12 @@
             <tr>
                 <td class="user-profile-tool-links" align="left" colspan="2">
                     <a href="{% url edit_user view_user.id %}">
+                    <i class="fa fa-pencil-square-o fa-2" style="margin-right: 2px;"></i>
                         {% trans %}update profile{% endtrans %}
                     </a>
                     {% if settings.USE_ASKBOT_LOGIN_SYSTEM and request.user == view_user and settings.ALLOW_ADD_REMOVE_LOGIN_METHODS %}
                         | <a href="{{ settings.LOGIN_URL }}?next={{ settings.LOGIN_URL }}">
-                            {% trans %}manage login methods{% endtrans %}
+                            <i class="fa fa-cog fa-2" style="margin-right: 2px;"></i>{% trans %}manage login methods{% endtrans %}
                         </a>
                     {% endif %}
                 </td>
