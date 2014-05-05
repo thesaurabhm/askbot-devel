@@ -23,7 +23,7 @@
 	background-image: url(/m/default/media/images/icon_color_503.png);
 }
 #icon.bw-404 {
-	background-image: url<Merge Conflict>(/m/default/media/images/icon_bw_404.png);
+	background-image: url(../images/icon_bw_404.png);
 }
 #icon.bw-500 {
 	background-image: url(/m/default/media/images/icon_bw_500.png);
