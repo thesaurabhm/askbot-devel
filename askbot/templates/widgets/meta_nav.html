@@ -4,7 +4,7 @@
   href="{% url tags %}"
   {% if active_tab == 'tags' %}class="on"{% endif %}
 ><i class="fa fa-tags fa-2"></i>
-{% trans %}tags{% endtrans %}</a>
+{% trans %}Tags{% endtrans %}</a>
 {% if settings.GROUPS_ENABLED %}
 <span class="dropdown">
 <a
@@ -12,7 +12,7 @@
   {% if active_tab == 'groups' %}class="on"{% endif %}
   href="{% url groups %}" data-target="#" >
   <i class="fa fa-users fa-2"></i>
-  {% trans %}people & groups{% endtrans %}
+  {% trans %}People & Groups{% endtrans %}
 </a>
 </span>
 {%else%}
@@ -29,5 +29,5 @@
   href="{% url badges %}"
   {% if active_tab == 'badges' %}class="on"{% endif %}
 ><i class="fa fa-bookmark fa-2"></i>
-{% trans %}badges{% endtrans %}</a>
+{% trans %}Badges{% endtrans %}</a>
 {% endif %}

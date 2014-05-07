@@ -112,6 +112,25 @@
             window.location.href = $(this).closest("a").attr("href");
             return false;
         });
+        if (window.FileReader) {
+            function handleFileSelect(evt) {
+                var files = evt.target.files;
+                var f = files[0];
+                var reader = new FileReader();
+                reader.onload = (function (theFile) {
+                    $('#profile_image_preview').show();
+                    return function (e) {
+                        if ($('#profile_image_preview').length > 0) {
+                            $('#profile_image_preview').attr('src', e.target.result).attr('title', theFile.name);
+                        } else {
+                            $('#previewimg').prepend($(['<img id="profile_image_preview" src="', e.target.result, '" title="', theFile.name, '" width="100"/>'].join('')));
+                        }
+                    };
+                })(f);
+                reader.readAsDataURL(f);
+            }
+        } else {}
+        $('#id_avatar').change(handleFileSelect);
     });
     if (askbot['data']['haveFlashNotifications']) {
         $('#validate_email_alert').click(function(){notify.close(true)})

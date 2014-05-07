@@ -181,7 +181,7 @@ def delete(request, extra_context=None, next_override=None, *args, **kwargs):
                         break
             Avatar.objects.filter(id__in=ids).delete()
             request.user.message_set.create(
-                message=_("Successfully deleted the requested avatars."))
+                message=_("Successfully deleted the requested photos."))
             return HttpResponseRedirect(next_override or _get_next(request))
     data = {
         'avatar': avatar, 
