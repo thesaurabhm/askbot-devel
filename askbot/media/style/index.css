@@ -770,3 +770,6 @@ a:hover {
 =======
 >>>>>>> about us + terms + privacy page implementation
 }
+.user-profile-page h3 {
+  margin-top: 0px;
+}
