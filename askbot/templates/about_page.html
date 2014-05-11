@@ -1,0 +1,156 @@
+{% extends "one_column_body.html" %}
+<!-- template static_page.html -->
+{% block title %}{% spaceless %}{{title}}{% endspaceless %}{% endblock %}
+{% block before_css %}
+<link href="{{"/style/animate.css"|media }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="content about-page">
+    	<h2 class="section-title about-title">{{title}}</h2>
+    <div class="row span10 wow fadeInDown">
+	    <div class="span6 intro-content">
+		    {{content}}
+		    <p><strong>Lawayo</strong> is a question and answer site for professional lawyers and law enthusiasts. It's built and run by a community of law experts. With your help, We're working together to build a platform to get detailed answers to every question about Law.</p>
+		    <p>We, At <strong>Lawayo</strong>, firmly believe that a major part of the successful practice of law is in building sustainable and healthy community. This is the reason we have devised a platform for law experts so that they can harness the power of technology to share, communicate, discuss and spread legal awareness.</p>
+	    </div>
+	    <div class="span3 sidebar_img">
+		</div>
+	</div>
+	<div class="row span10">
+		<p class="about-helptext">We're a little bit different from other sites. Here's how:</p>
+	</div>
+    <hr class="separator">
+
+    <div class="about-qa">
+    	<p><h2 class="section-title about-qa-title">Ask Questions, Get Answers, Spread Legal Awareness</h2></p>
+    </div>
+    <div class="row span3">
+    	<div class="arrow-up wow fadeInLeft" data-wow-delay="1s"></div>
+    	<p>Through our dedicated legal advice forum one can directly participate in the ongoing online legal discussion and initiate conversations in the form of <strong>questions</strong>.</p>
+    	<p>This site is all about getting <strong>answers</strong>.</p>
+    	<div class="arrow-down wow fadeInLeft" data-wow-delay="1s"></div>
+    	<div>
+		    <p>Good answers are voted up and rise to the top.</p>
+			<p> The best answers show up first so that they are always easy to find.</p>
+			<p>The person who asked can mark one answer as "<strong>accepted</strong>".</p>
+			<p>Accepting doesn't mean it's the best answer, it just means that it worked for the person who asked.</p>
+		</div>
+    </div>
+
+    </div>
+    <div class="span6 wow slideInRight qna">
+    	
+    </div>
+    <hr class="separator">
+    <div class="about-tags">
+    	<p><h2 class="section-title about-qa-title">Tags make it easy to find relevant questions</h2></p>
+    </div> 
+    <div class="span3">
+	    <p>All questions are tagged with their subject areas. Each can have up to 5 tags, since a question might be related to several subjects.</p>
+	    <div class="arrow-down-up wow fadeInLeft arrow_pos" data-wow-delay="1s"></div>
+		<p>Click any tag to see a list of questions with that tag, or go to the tag list to browse for topics that interest you.</p>
+
+	</div>
+    <div class="span6 wow fadeInRight tags-qna">
+    	
+    </div>
+	<hr class="separator">
+	<div class="about-votes">
+    	<p><h2 class="section-title about-qa-title">You earn reputation when people vote on your posts</h2></p>
+    </div>
+    <div class="span3">
+		<div class="feature">
+          <p>Lawayo has Karma:</p>
+          <ul>
+              <li>Experts are rewarded with karma for posting useful information</li>
+              <div class="arrow-down-up wow fadeInLeft arrow_pos" data-wow-delay="1s"></div>
+              <li>Upvotes grow users karma and the downvotes decrease it</li>
+              <li>Votes identify best content, while karma spotlights and rewards experts</li>
+              <li>User privileges grow along with their reputation.</li>
+              <li>Choose either public, private or hidden karma.</li>
+          </ul>
+		</div>
+	</div>
+    <div class="span6 wow fadeInRight">
+ 		<div class="post-update-info-container"> 
+ 			<div class="post-update-info"> 
+				<div class="user-card span2"> <a class="avatar-box" href="javascript:void(0);">
+					<img class="gravatar" width="32" height="32" src="/m/default/media/images/nophoto.png" title="John" alt="John gravatar image" style="max-width: 685px; height: auto;"></a> 
+					<div class="user-info"> <a href="javascript:void(0);">John</a>
+						<img class="flag" src="/m/default/media/images/flags/in.gif?v=1" alt="flag of India" title="Bob is from India"> 
+						<br> 
+						<span class="reputation-score">457</span> 
+						<span class="badges" title="Bob has 5 silver badges and 21 bronze badge"> 
+						<span class="badge2">●</span><span class="badgecount">5</span> <span class="badge3">●</span>
+						<span class="badgecount">21</span> </span>  
+					</div>
+				</div>
+			<div class="fr">
+	            <div class="rep-block fl">
+	                <span class="rep-up">+5</span>
+	                question voted up
+	            </div>
+	            <div class="rep-block fl">
+	                <span class="rep-up">+10</span>
+	                answer voted up
+	            </div>
+	            <div class="rep-block fl">
+	                <span class="rep-up">+15</span>
+	                answer is accepted
+	            </div>
+	            <div class="rep-block fl">
+	                <span class="rep-down">-2</span>
+	                Answer voted down
+	            </div>
+		    </div>
+		</div> 
+	</div>
+    </div>
+	<hr class="separator">
+	<div class="about-improve">
+    	<p><h2 class="section-title about-qa-title">Improve posts by editing or commenting</h2></p>
+    </div>
+    <div class="span3">
+	    <p>Our goal is to have the best answers to every question, so if you see questions or answers that can be improved, you can edit them.</p>
+		<p>Use edits to fix mistakes, improve formatting, or clarify the meaning of a post.</p>
+		<p>Use comments to ask for more information or clarify a question or answer.</p>
+		<div class="arrow-down-up wow fadeInLeft arrow_pos" data-wow-delay="1s"></div>
+		<p>You can always comment on your own questions and answers. Once you earn 50 reputation, you can comment on anybody's post.</p>
+		
+		<p>Remember: we're all here to learn, so be friendly and helpful!</p>
+	</div>
+    <div class="span6 wow fadeInRight edit_qna">
+    	
+    </div>
+	<hr class="separator">
+	<div class="about-improve">
+    	<p><h2 class="section-title about-qa-title">Unlock badges for special achievements</h2></p>
+    </div>
+    <div class="span3">
+	    <p>Badges are special achievements you earn for participating on the site. They come in three levels: bronze, silver, and gold.</p>
+	    <div class="arrow-down-up wow fadeInLeft arrow_pos" data-wow-delay="1s"></div>
+	</div>
+	<div class="span6 wow fadeInRight">
+    	<div id="medalList">
+    	<div style="clear:both;line-height:30px"> <div style="float:left;width:230px;"> <a href="/badges/24/good-question/" title="silver : Question voted up up 3 times" class="medal"><span class="badge2">●</span>&nbsp;Good Question</a></div> <p style="float:left;margin-top:8px;">Question voted up up 3 times</p> </div>
+    	</div>
+    	<div style="clear:both;line-height:30px"> <div style="float:left;width:230px;"> <a href="/badges/18/great-answer/" title="gold : Answer voted up 5 times" class="medal"><span class="badge1">●</span>&nbsp;Great Answer</a> </div> <p style="float:left;margin-top:8px;">Answer voted up 5 times</p> </div>
+        <div style="clear:both;line-height:30px"> <div style="float:left;width:230px;"> <a href="/badges/34/guru/" title="gold : Gave accepted answer upvoted 5 or more times" class="medal"><span class="badge1">●</span>&nbsp;Guru</a></div> <p style="float:left;margin-top:8px;">Gave accepted answer upvoted 5 or more times</p> </div>
+        <div style="clear:both;line-height:30px"> <div style="float:left;width:230px;"> <a href="/badges/26/civic-duty/" title="silver : Voted 100 times" class="medal"><span class="badge2">●</span>&nbsp;Civic Duty</a></div> <p style="float:left;margin-top:8px;">Voted 100 times</p> </div>
+        <div style="clear:both;line-height:30px"> <div style="float:left;width:230px;"> <a href="/badges/9/critic/" title="bronze : First downvote" class="medal"><span class="badge3">●</span>&nbsp;Critic</a></div> <p style="float:left;margin-top:8px;">First downvote</p> </div>
+    </div>
+	<hr class="separator">
+
+</div>
+{% endblock %}
+{% block endjs %}
+<script type="text/javascript" src="{{"/js/wow.min.js"|media}}"></script>
+<script>
+new WOW().init();
+</script>
+{% endblock %}
+<!-- {% block sidebar %}
+
+{% endblock %} -->
+<!-- end template static_page.html -->

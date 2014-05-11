@@ -56,13 +56,13 @@ def config_variable(request, variable_name = None, mimetype = None):
         return HttpResponseForbidden()
 
 def about(request, template='about.html'):
-    title = _('About %(site)s') % {'site': askbot_settings.APP_SHORT_NAME}
+    title = _('Welcome to %(site)s') % {'site': askbot_settings.APP_SHORT_NAME}
     data = {
         'title': title,
         'page_class': 'meta',
         'content': askbot_settings.FORUM_ABOUT
     }
-    return render(request, 'static_page.html', data)
+    return render(request, 'about_page.html', data)
 
 def page_not_found(request, template='404.html'):
     return generic_view(request, template)
@@ -158,7 +158,14 @@ def privacy(request):
         'page_class': 'meta',
         'content': askbot_settings.FORUM_PRIVACY
     }
-    return render(request, 'static_page.html', data)
+    return render(request, 'privacy_page.html', data)
+
+def terms(request):
+    data = {
+        'title': _('Terms and Conditions of Use'),
+        'page_class': 'meta'
+    }
+    return render(request, 'terms.html', data)
 
 def badges(request):#user status/reputation system
     #todo: supplement database data with the stuff from badges.py

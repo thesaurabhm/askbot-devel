@@ -54,11 +54,12 @@
             {% endif %}
         {% endif %}
         <div class="footer-links" >
-            <a href="{% url about %}">{% trans %}about{% endtrans %}</a><span class="link-separator"> |</span>
-            <a href="{% url faq %}">{% trans %}faq{% endtrans %}</a><span class="link-separator"> |</span>
-            <a href="{% url help %}" title="{% trans %}help{% endtrans %}">{% trans %}help{% endtrans %}</a>
+            <a href="{% url about %}" title="Know more about Lawayo">{% trans %}about{% endtrans %}</a><span class="link-separator"> |</span>
+            <a href="{% url faq %}" title="{% trans %}frequently asked questions{% endtrans %}">{% trans %}faq{% endtrans %}</a><span class="link-separator"> |</span>
+            <a href="{% url help %}" title="{% trans %}help{% endtrans %}">{% trans %}help{% endtrans %}</a><span class="link-separator"> |</span>
+            <a href="{% url terms %}" title="{% trans %}terms &amp; conditions{% endtrans %}">{% trans %}terms &amp; conditions{% endtrans %}</a>
             <span class="link-separator"> |</span>
-            <a href="{% url privacy %}">{% trans %}privacy policy{% endtrans %}</a><span class="link-separator"> |</span>
+            <a href="{% url privacy %}" title="{% trans %}read our privacy policy{% endtrans %}">{% trans %}privacy policy{% endtrans %}</a><span class="link-separator"> |</span>
             {% spaceless %}
             <a href=
                         {% if settings.FEEDBACK_SITE_URL %}

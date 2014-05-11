@@ -536,3 +536,128 @@ a:hover {
   padding: 26px 0px 26px 0px;
   margin:0;
 }
+.about-page h2.about-title {
+  font-size: 28px !important;
+  color: #00aadd !important;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #fff;
+  text-align: center;
+  font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+}
+.sidebar_img {
+  background: url('/m/default/media/images/AboutUs.jpg') no-repeat;
+  background-size: contain;
+  height:150px;
+  margin-top: 60px;
+}
+.intro-content p{
+  font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  text-align: center;
+  margin-top:35px;
+}
+.separator{
+  border-width: 0;
+  margin: 3em 0;
+  background-color: #e0e0e0;
+  box-shadow: 0 1px #fff;
+  clear: both;
+  border: 0;
+  height: 1px;
+}
+.about-qa-title {
+  font-size: 25px !important;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #fff;
+  text-align: center;
+  margin-bottom: 1.5em !important;
+  text-align:center;
+  font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+}
+.post-content-template {
+  display: table-cell;
+  border-spacing: 0px;
+  padding-left: 14px;
+  vertical-align: top;
+  width: auto;
+}
+.about-helptext {
+  font-style: italic;
+  font-size: 17px !important;
+  text-align: center;
+  padding: 25px 0px 25px 0px;
+}
+.qna {
+    background: url("/m/default/media/images/qna.png") center center no-repeat;  
+    background-size: contain;
+    height: 400px;
+}
+.tags-qna {
+    background: url("/m/default/media/images/tags_qna.png") center center no-repeat;  
+    background-size: contain;
+    height: 100px;
+}
+.points {
+    background: url("/m/default/media/images/points.png") center center no-repeat;  
+    background-size: contain;
+    height: 70px;
+}
+.edit_qna {
+     background: url("/m/default/media/images/edit_qna.png") center center no-repeat;  
+    background-size: contain;
+    height: 200px; 
+}
+.rep-block {
+  width: 70px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+  float: left;
+}
+.rep-up {
+  color: #4c9067;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-style: normal;
+  margin-bottom: 15px;
+}
+.rep-down {
+  color: #CD2626;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-style: normal;
+  margin-bottom: 15px;
+}
+.arrow-up {
+  width: 99px;
+  height: 60px;
+  background: transparent url('/m/default/media/images/arrow_up.png') no-repeat;
+  float: right;
+  background-size: contain;
+}
+.arrow-down {
+  width: 109px;
+  height: 90px;
+  background: transparent url('/m/default/media/images/arrow_down.png') no-repeat;
+  float: right;
+  background-size: contain;
+}
+.arrow-down-up {
+  width: 109px;
+  height: 60px;
+  background: transparent url('/m/default/media/images/arrow_down_up.png') no-repeat;
+  float: right;
+  background-size: contain;
+}
+.arrow_pos {
+  position: relative;
+  left: 80px;
+  z-index: 2;
+  top: 10px;
+}
