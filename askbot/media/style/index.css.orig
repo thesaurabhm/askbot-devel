@@ -535,6 +535,7 @@ a:hover {
 .avatarFormSubmit, .avatarContainer{
   padding: 26px 0px 26px 0px;
   margin:0;
+<<<<<<< HEAD
 }
 .about-page h2.about-title {
   font-size: 28px !important;
@@ -660,7 +661,6 @@ a:hover {
   left: 80px;
   z-index: 2;
   top: 10px;
-<<<<<<< HEAD
 }
 .user-profile-page h3 {
   margin-top: 0px;
@@ -670,103 +670,6 @@ a:hover {
 }
 .user-details a:hover, .short-summary a:hover {
   color: #00aadd;
-}
-#profile_image_choice input {
-  display:inline-block;
-}
-#cancelProfileImageUpdate {
-  display: inline-block;
-  line-height: 27px;
-  width: 45px;
-  vertical-align: middle;
-}
-#profile_image_choice ul {
-  margin-left:0px;
-}
-#profile_image_choice img {
-  margin-right:15px;
-}
-#profile_image_new {
-  padding:20px 0px 20px 0px;
-}
-.noAvatar {
-  color: #505050;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 26px;
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
-  padding: 10px 0px 10px 0px;
-}
-
-.heading {
-  color: #00aadd;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 26px;
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
-  width: auto;
-  padding: 5px;
-  display: inline-block;
-}
-#previewimg {
-  width: 82px;
-  height: 72px;
-  background-color: #EEE;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 72px;
-}
-#previewimg:before {
-  content: 'Profile Photo';
-  color: #B5B4B3;
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
-}
-#profile_image_preview {
-  position: relative;
-  top: -72px;
-  max-width: 78px;
-  max-height: 68px;
-}
-.uploadAvatar > input[type="file"] {
-  width: 70px;
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  background-image: none;
-  background-color: #00aadd;
-  color: white;
-  border-radius: 0px;
-  -ms-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  -khtml-border-radius: 0px;
-  text-shadow: none;
-  -moz-text-shadow: none;
-  -webkit-text-shadow: none;
-}
-.uploadAvatar > input[type="file"]:focus {
-  outline: none;
-  outline-offset: none;
-}
-.uploadAvatar > input[type="file"]:before {
-  content: 'Choose';
-  display: inline-block;
-  color: white;
-  padding: 0 16px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  font-size: 10pt;
-}
-.avatarFormSubmit, .avatarContainer{
-  padding: 26px 0px 26px 0px;
-  margin:0;
 =======
->>>>>>> about us + terms + privacy page implementation
+>>>>>>> implementation of user profile image
 }

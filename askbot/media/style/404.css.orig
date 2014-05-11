@@ -1,0 +1,316 @@
+
+#container {
+	width: 794px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 379px;
+	visibility: hidden;
+}
+#icon {
+	width: 328px;
+	height: 385px;
+	position: absolute;
+	left: 0;
+	top: -10px;
+}
+#icon.color-404 {
+	background-image: url(/m/default/media/images/icon_color_404.png);
+}
+#icon.color-500 {
+	background-image: url(/m/default/media/images/icon_color_500.png);
+}
+#icon.color-503 {
+	background-image: url(/m/default/media/images/icon_color_503.png);
+}
+#icon.bw-404 {
+<<<<<<< HEAD
+	background-image: url<Merge Conflict>(/m/default/media/images/icon_bw_404.png);
+=======
+	background-image: url(/m/default/media/images/icon_bw_404.png);
+>>>>>>> Corrected image path in css. hould be absolute as compressed css goes into CACHE folder
+}
+#icon.bw-500 {
+	background-image: url(/m/default/media/images/icon_bw_500.png);
+}
+#icon.bw-503 {
+	background-image: url(/m/default/media/images/icon_bw_503.png);
+}
+h1 {
+	font-size: 55px;
+	line-height: 55px;
+	color: #444;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 700;
+	margin: 0;
+}
+h3 {
+	font-size: 16px;
+	line-height: 16px;
+	color: #888;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 500;
+	margin: 0;
+	padding-left: 3px;
+}
+h1.title {
+	position: absolute;
+	left: 353px;
+	top: 170px;
+}
+h3.description {
+	position: absolute;
+	left: 353px;
+	top: 222px;
+}
+#box {
+	border: 1px solid #d0d0d0;
+	background-color: #e5e5e5;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px 1px 1px 0px #dcdcdc, 0px 1px 0px #fff;
+	box-shadow: inset 0px 1px 1px 0px #dcdcdc, 0px 1px 0px #fff;
+	padding: 3px;
+	margin-bottom: 1px;
+}
+#inner-box {
+	border: 1px solid #cecece;
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 20px;
+	-webkit-box-shadow: 0px 1px 1px 0px #dcdcdc;
+	box-shadow: 0px 1px 1px 0px #dcdcdc;
+}
+#question-mark {
+	width: 77px;
+	height: 150px;
+	margin: 0 70px 0 50px;
+	background-image: url(/m/default/media/images/question_mark.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	float: left;
+}
+#divider {
+	width: 1px;
+	height: 150px;
+	background: #e5e5e5;
+	float: left;
+	margin-right: 20px;
+}
+h2 {
+	font-size: 17px;
+	line-height: 17px;
+	color: #616161;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 500;
+	margin: 0;
+}
+#box ul {
+	list-style: disc;
+	list-style-position: inside;
+	margin: 10px 0;
+	padding: 0;
+}
+#box ul li {
+	font-size: 14px;
+	line-height: 24px;
+	font-family: "HelveticaNeue", Helvetica, sans-serif;
+	color: #636363;
+}
+input[type=text] {
+	border: 1px solid #cbcbcb;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0px 1px 1px #ededed;
+	box-shadow: inset 0px 1px 1px #ededed;
+	padding: 9px;
+	outline: none;
+	font-family: "HelveticaNeue", Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #636363;
+	width: 253px;
+	margin: 0 2px 0 0;
+}
+#goog-wm-sb {
+	height:40px;
+}
+::-webkit-input-placeholder {
+	color: #b7b7b7;
+}
+:-moz-placeholder {  
+	color: #b7b7b7;
+}
+
+nav {
+	padding-top: 11px;
+}
+nav ul {
+	text-align: center;
+}
+nav ul li {
+	display: inline;
+	color: #969696;
+	font-size: 15px;
+	font-family: "HelveticaNeue", Helvetica, sans-serif;
+	text-decoration: none;
+}
+nav ul li a:link, nav ul li a:hover, nav ul li a:visited, nav ul li a:active {
+	color: #969696;
+	font-size: 15px;
+	font-family: "HelveticaNeue", Helvetica, sans-serif;
+	text-decoration: none;
+}
+nav ul li a:hover {
+	color: #828282;
+}
+nav ul li.divider {
+	padding: 0 14px;
+}
+
+/* =============================================================================
+   CSS3 FALLBACKS
+   ========================================================================== */
+
+#box-header {
+	height: 10px;
+	overflow: hidden;
+}
+#box-header-left {
+	height: 10px;
+	width: 10px;
+	float: left;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 0px -120px;
+}
+#box-header-right {
+	height: 10px;
+	width: 10px;
+	float: right;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 190px -120px;
+}
+#box-header-center {
+	height: 10px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 0px -196px;
+	background-repeat: repeat-x;
+	overflow: hidden;
+}
+#box-content {
+	
+}
+#box-content-left {
+	background-image: url(/m/default/media/images/sprite_vertical.png);
+	background-position: left top;
+	background-repeat: repeat-y;
+}
+#box-content-right {
+	background-image: url(/m/default/media/images/sprite_vertical.png);
+	background-position: right top;
+	background-repeat: repeat-y;
+}
+#box-content-center {
+	margin: 0 10px;
+	background: #fff;
+	padding: 15px;
+}
+#box-footer {
+	height: 11px;
+	overflow: hidden;
+}
+#box-footer-left {
+	height: 11px;
+	width: 10px;
+	float: left;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 0px -130px;
+}
+#box-footer-right {
+	height: 11px;
+	width: 10px;
+	float: right;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 190px -130px;
+}
+#box-footer-center {
+	height: 11px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 0px -206px;
+	background-repeat: repeat-x;
+	overflow: hidden;
+}
+.button {
+	height: 40px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: right top;
+	float: left;
+	margin: 0 0 0 4px;
+	cursor: pointer;
+}
+.button div {
+	height: 40px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: left top;
+	float: left;
+	margin: 0 4px 0 -4px;
+	padding: 0 20px 0 24px;
+	font-family: "HelveticaNeue-Medium", Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 38px;
+	color: #6b6b6b;
+	text-shadow: 0px 1px 0px #fff;
+}
+.button:hover {
+	background-position: right -40px;
+}
+.button:hover div {
+	background-position: left -40px;
+}
+.button:active {
+	background-position: right -80px;
+}
+.button:active div {
+	background-position: left -80px;
+}
+.input {
+	*width: 273px;
+	height: 38px;
+	overflow: hidden;
+	float: left;
+	padding-right: 4px;
+}
+.input-left {
+	width: 3px;
+	height: 38px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: -20px -120px;
+	float: left;
+}
+.input-right {
+	width: 3px;
+	height: 38px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: -24px -120px;
+	float: right;
+}
+.input-center {
+	height: 22px;
+	background-image: url(/m/default/media/images/sprite_horizontal.png);
+	background-position: 0px -158px;
+	background-repeat: repeat-x;
+	overflow: hidden;
+	padding: 8px 7px;
+}
+.input input {
+	border: none;
+	-webkit-border-radius: none;
+	border-radius: none;
+	background: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	padding: 0px;
+	margin: 0px;
+	height: 22px;
+	line-height: 22px;
+}

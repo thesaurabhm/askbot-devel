@@ -1,0 +1,28 @@
+{% if settings.ASKBOT_CSS_DEVEL %}
+    <link href="{{'/bootstrap/css/bootstrap.css'|media}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{'/font-awesome/css/font-awesome.min.css'|media}}">
+    <link href="{{"/style/style.less"|media }}" rel="stylesheet/less" type="text/css" />
+<<<<<<< HEAD
+    <link href="{{"/style/index.css"|media }}" rel="stylesheet" type="text/css" />
+=======
+    <link href="{{"/style/index.less"|media }}" rel="stylesheet/less" type="text/css" />
+>>>>>>> initial change
+    {{ skin.get_extra_css_link() }}
+    <script type="text/javascript" src="{{"/js/less.min.js"|media}}"></script>
+{% else %}
+    {% compress css %}
+     	<link href="{{'/bootstrap/css/bootstrap.css'|media}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{'/font-awesome/css/font-awesome.min.css'|media}}">
+        <link href="{{"/style/style.css"|media }}" rel="stylesheet" type="text/css" />
+        <link href="{{"/style/index.css"|media }}" rel="stylesheet" type="text/css" />
+        {{ skin.get_extra_css_link() }}
+    {% endcompress %}
+{% endif %}
+{% if settings.USE_CUSTOM_CSS %}
+    {# can't compress yet because this comes from live settings #}
+    <link
+        href="{% url "custom_css" %}?v={{settings.MEDIA_RESOURCE_REVISION}}"
+        rel="stylesheet"
+        type="text/css"
+    />
+{% endif %}
