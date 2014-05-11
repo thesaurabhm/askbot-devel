@@ -56,7 +56,7 @@
             <input id="subscribedTagAdd" type="submit" value="{% trans %}add{% endtrans%}"/>
         </div>
     {% endif %}
-    <h3>{{ settings.WORDS_SHOW_ONLY_QUESTIONS_FROM|escape }}</h3>
+    <h2>{{ settings.WORDS_SHOW_ONLY_QUESTIONS_FROM|escape }}</h2>
     <div id="displayTagFilterControl">
         {{
             macros.radio_select(
@@ -67,7 +67,7 @@
         }}
     </div>
     {% if settings.SUBSCRIBED_TAG_SELECTOR_ENABLED %}
-        <h3>{% trans %}Send me email alerts for{% endtrans%}</h3>
+        <h2>{% trans %}Send me email alerts for{% endtrans%}</h2>
         <div id="emailTagFilterControl">
             {{
                 macros.radio_select(
