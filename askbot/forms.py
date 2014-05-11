@@ -1430,7 +1430,7 @@ class EditUserForm(forms.Form):
                     )
 
     about = forms.CharField(
-                        label=_('Profile'),
+                        label=_('About Me'),
                         required=False,
                         widget=forms.Textarea(attrs={'cols': 60})
                     )

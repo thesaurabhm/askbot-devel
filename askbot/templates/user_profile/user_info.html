@@ -47,7 +47,13 @@
             {% endif %}
             <tr>
                 <th colspan="2" align="left">
-                <h3>{{user_status_for_display}}</h3>
+                    <div>
+                    <h3 class="pull-left">{{user_status_for_display}}</h3>
+                        {% if request.user.is_lawexpert %}
+                            <span class="pull-left" style="padding:0px 5px 0px 5px;">|</span>
+                            <h3>{% trans %}Law Expert {% endtrans %}</h3>
+                        {% endif %}
+                    </div>
                 </th>
             </tr>
             {% if view_user.real_name %}

@@ -661,3 +661,6 @@ a:hover {
   z-index: 2;
   top: 10px;
 }
+.user-profile-page h3 {
+  margin-top: 0px;
+}
