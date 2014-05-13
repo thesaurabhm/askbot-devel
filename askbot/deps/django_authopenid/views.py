@@ -1164,7 +1164,10 @@ def register(request, login_provider_name=None, user_identifier=None):
                         )
                 user.image_url = request.session.get('image_url', '')
                 user.save()
-                del request.session['image_url']
+
+                if 'image_url' in request.session:
+                    del request.session['image_url']
+
                 login(request, user)
                 cleanup_post_register_session(request)
                 return HttpResponseRedirect(next_url)
@@ -1256,7 +1259,10 @@ def verify_email_and_register(request):
             email_verifier.save()
             user.image_url = request.session.get('image_url', '')
             user.save()
-            del request.session['image_url']
+
+            if 'image_url' in request.session:
+                del request.session['image_url']
+                
             cleanup_post_register_session(request)
 
             return HttpResponseRedirect(get_next_url(request))
