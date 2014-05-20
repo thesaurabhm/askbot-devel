@@ -664,11 +664,7 @@ for the purposes of the AJAX comment editor #}
     href="{{ user.get_absolute_url() }}"
 ><img class="gravatar" 
     width="{{size}}" height="{{size}}"
-{% if user.image_url != '' %}
-    src="{{user.image_url}}?width={{size}}&height={{size}}"
-{% else %}
     src="{{ user.get_avatar_url(size) }}"
-{% endif %}
     title="{{user.username|escape}}" 
     alt="{% trans username=user.username|escape %}{{username}} gravatar image{% endtrans %}" 
 /></a>

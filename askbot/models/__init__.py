@@ -320,7 +320,7 @@ def user_get_gravatar_url(self, size):
 
 def user_get_default_avatar_url(self, size):
     """returns default avatar url
-    """
+    """    
     return skin_utils.get_media_url(askbot_settings.DEFAULT_AVATAR_URL)
 
 def user_get_avatar_url(self, size=48):
@@ -330,6 +330,9 @@ def user_get_avatar_url(self, size=48):
     """
     if 'avatar' in django_settings.INSTALLED_APPS:
         if self.avatar_type == 'n':
+            if self.image_url != '':
+                return self.image_url + '?width=' + size + '&height=' + size
+            
             import avatar
             if askbot_settings.ENABLE_GRAVATAR: #avatar.settings.AVATAR_GRAVATAR_BACKUP:
                 return self.get_gravatar_url(size)
@@ -348,10 +351,13 @@ def user_get_avatar_url(self, size=48):
         else:
             return self.get_gravatar_url(size)
     else:
-        if askbot_settings.ENABLE_GRAVATAR:
-            return self.get_gravatar_url(size)
+        if self.image_url != '':
+            return self.image_url + '?width=' + size + '&height=' + size
         else:
-            return self.get_default_avatar_url(size)
+            if askbot_settings.ENABLE_GRAVATAR:
+                return self.get_gravatar_url(size)
+            else:
+                return self.get_default_avatar_url(size)
 
 def user_get_top_answers_paginator(self, visitor=None):
     """get paginator for top answers by the user for a
