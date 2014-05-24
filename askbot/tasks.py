@@ -28,6 +28,7 @@ from django.template.loader import get_template
 from django.utils.translation import ugettext as _
 from django.utils.translation import activate as activate_language
 from django.utils import simplejson
+from django.core.exceptions import ObjectDoesNotExist
 from celery.decorators import task
 from askbot.conf import settings as askbot_settings
 from askbot import const
@@ -48,8 +49,10 @@ def tweet_new_post_task(post_id):
         twitter = Twitter()
     except:
         return
-
-    post = Post.objects.get(id=post_id)
+    try:
+        post = Post.objects.get(id=post_id)
+    except ObjectDoesNotExist:
+        pass
 
     is_mod = post.author.is_administrator_or_moderator()
     if is_mod or post.author.reputation > askbot_settings.MIN_REP_TO_TWEET_ON_OTHERS_ACCOUNTS:
@@ -213,7 +216,11 @@ def send_instant_notifications_about_activity_in_post(
                                                 recipients = None,
                                             ):
     #reload object from the database
-    post = Post.objects.get(id=post.id)
+    try:
+        post = Post.objects.get(id=post.id)
+    except ObjectDoesNotExist:
+        pass
+
     if post.is_approved() is False:
         return
 
