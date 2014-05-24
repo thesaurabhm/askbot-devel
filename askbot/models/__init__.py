@@ -331,7 +331,7 @@ def user_get_avatar_url(self, size=48):
     if 'avatar' in django_settings.INSTALLED_APPS:
         if self.avatar_type == 'n':
             if self.image_url != '':
-                return self.image_url + '?width=' + size + '&height=' + size
+                return self.image_url + '?width=' + str(size) + '&height=' + str(size)
             
             import avatar
             if askbot_settings.ENABLE_GRAVATAR: #avatar.settings.AVATAR_GRAVATAR_BACKUP:
@@ -352,7 +352,7 @@ def user_get_avatar_url(self, size=48):
             return self.get_gravatar_url(size)
     else:
         if self.image_url != '':
-            return self.image_url + '?width=' + size + '&height=' + size
+            return self.image_url + '?width=' + str(size) + '&height=' + str(size)
         else:
             if askbot_settings.ENABLE_GRAVATAR:
                 return self.get_gravatar_url(size)
