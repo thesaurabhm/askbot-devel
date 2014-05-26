@@ -3163,7 +3163,7 @@ def format_instant_notification_email(
             'email': from_user.email
         }
     elif post.is_anonymous:
-        user_link = from_user.get_name_of_anonymous_user()
+        user_link = from_user.get_anonymous_name()
     else:
         user_link = '<a href="%s">%s</a>' % (user_url, from_user.username)
 
