@@ -1003,7 +1003,11 @@ def user_email_subscriptions(request, user, context):
         'action_status': action_status,
         'user_languages': user.languages.split()
     }
+
     context.update(data)
+    if askbot_settings.SUBSCRIBED_TAG_SELECTOR_ENABLED:
+        context.update(view_context.get_for_tag_editor())
+
     return render(
         request,
         'user_profile/user_email_subscriptions.html',

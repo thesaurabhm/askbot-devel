@@ -62,6 +62,7 @@
     {%endif%}
 {% endblock %}
 {%block userjs%}
+  {% include "meta/editor_data.html" %}
   <script type='text/javascript'>
     search = new FullTextSearch();
     askbot['controllers'] = askbot['controllers'] || {}
