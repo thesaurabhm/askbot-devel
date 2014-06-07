@@ -774,3 +774,6 @@ a:hover {
 .box .contributorback {
   background:none;
 }
+.user-card {
+	height: 70px;
+}
